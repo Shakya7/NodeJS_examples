@@ -1,0 +1,21 @@
+{
+  "name": "ex_1",
+  "version": "1.0.0",
+  "description": "Just to check server side rendering",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Shakya Sarkar",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.3",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7",
+    "pug": "^3.0.2"
+  }
+}
