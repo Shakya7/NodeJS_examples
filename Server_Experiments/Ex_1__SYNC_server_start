@@ -1,0 +1,39 @@
+const http=require("http");
+const fs=require("fs");
+
+let data=fs.readFileSync("./data.json","utf-8");
+//const dataObj=JSON.parse(data);
+
+
+
+
+let abtus=0;
+
+const server=http.createServer((req,res)=>{
+    if(req.url==="/" || req.url==="/home" || req.url===""){
+        res.writeHead(200,"Success",{"content-type":"text/html","customHeads":"This is the extra header child"});
+        res.end("<h1>This is the Home Page</h1>");
+        console.log("Connected ...");
+        //console.log(req.headers.host);
+    }
+    else if(req.url==="/about"){
+        abtus++;
+        res.writeHead(200,{"content-type":"text/html"});
+        res.end("<h2>About Us Page</h2>");
+        console.log(`About Us ${abtus}`);
+        
+
+    }
+    else if(req.url==="/api"){
+        res.writeHead(200,{"content-type":"application/json"});
+        res.end(data);
+        
+    }
+    else
+        res.writeHead(404,{"content-type":"text/html"});
+        res.end("<p>No response found</p>");
+
+});    
+
+server.listen(2000);
+console.log("Server started");
